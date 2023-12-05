@@ -6,7 +6,16 @@
         <ion-title>Menu Content</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">This is the menu content.</ion-content>
+    <ion-content class="ion-padding">
+      <ion-list>
+        <ion-item (click)="goToPage('home')">
+          Home
+        </ion-item>
+        <ion-item (click)="goToPage('favorites')">
+          Favorites
+        </ion-item>
+      </ion-list>
+    </ion-content>
   </ion-menu>
 
   <div class="ion-page" id="main-content">
