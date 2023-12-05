@@ -1,0 +1,8 @@
+{
+  "name": "vlab-challenge",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "54b9f745"
+}
