@@ -1,0 +1,16 @@
+/* Add this CSS to your styles.css or equivalent stylesheet */
+
+.selection-menu{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+ion-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  ion-item ion-icon {
+    margin-right: 8px; /* Adjust the margin as needed for the desired distance */
+  }
