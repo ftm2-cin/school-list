@@ -21,6 +21,6 @@ export class ViewSchoolPage implements OnInit {
   }
 
   goBack() {
-    this.navCtrl.back();
+    this.navCtrl.pop();
   }
 }
