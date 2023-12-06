@@ -12,7 +12,37 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">contact</ion-title>
+      <ion-title size="large">Contato</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card *ngIf="schoolContact">
+    <ion-card-header>
+      <ion-card-title>Informações de Contato</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label position="stacked">Telefone:</ion-label>
+          <ion-text>({{schoolContact.nuDdd}}) {{ schoolContact.nuTelefone }}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Telefone Público:</ion-label>
+          <ion-text>{{ schoolContact.nuTelefonePublico }}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Fax:</ion-label>
+          <ion-text>{{ schoolContact.nuFax }}</ion-text>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="success" (click)="redirectToWhatsApp()">
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
