@@ -45,5 +45,18 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+
+	<!-- Permissions -->
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs access to your location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs access to your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs access to your location</string>
+	<key>NSLocationUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs access to your location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs access to your location</string>
+
 </dict>
 </plist>
