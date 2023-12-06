@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-export interface Message {
+export interface School {
   fromName: string;
   subject: string;
   date: string;
@@ -12,58 +12,58 @@ export interface Message {
   providedIn: 'root'
 })
 export class DataService {
-  public messages: Message[] = [
+  public schools: School[] = [
     {
-      fromName: 'Matt Chorsey',
+      fromName: 'DAMAS',
       subject: 'New event: Trip to Vegas',
       date: '9:32 AM',
       id: 0,
       read: false
     },
     {
-      fromName: 'Lauren Ruthford',
+      fromName: 'CBV',
       subject: 'Long time no chat',
       date: '6:12 AM',
       id: 1,
       read: false
     },
     {
-      fromName: 'Jordan Firth',
+      fromName: 'MARISTA',
       subject: 'Report Results',
       date: '4:55 AM',
       id: 2,
       read: false
     },
     {
-      fromName: 'Bill Thomas',
+      fromName: 'NUCLEO',
       subject: 'The situation',
       date: 'Yesterday',
       id: 3,
       read: false
     },
     {
-      fromName: 'Joanne Pollan',
+      fromName: 'POLI',
       subject: 'Updated invitation: Swim lessons',
       date: 'Yesterday',
       id: 4,
       read: false
     },
     {
-      fromName: 'Andrea Cornerston',
+      fromName: 'UFPE',
       subject: 'Last minute ask',
       date: 'Yesterday',
       id: 5,
       read: false
     },
     {
-      fromName: 'Moe Chamont',
+      fromName: 'UFRPE',
       subject: 'Family Calendar - Version 1',
       date: 'Last Week',
       id: 6,
       read: false
     },
     {
-      fromName: 'Kelly Richardson',
+      fromName: 'SAO BENTO',
       subject: 'Placeholder Headhots',
       date: 'Last Week',
       id: 7,
@@ -73,24 +73,24 @@ export class DataService {
 
   constructor() { }
 
-  public getMessages(): Message[] {
-    return this.messages;
+  public getSchools(): School[] {
+    return this.schools;
   }
 
-  public getMessageById(id: number): Message {
-    return this.messages[id];
+  public getSchoolById(id: number): School {
+    return this.schools[id];
   }
 
-  public searchMessages(query: string): Message[] {
+  public searchSchool(query: string): School[] {
     const sanitizedQuery = query.toLowerCase().trim();
 
     if (!sanitizedQuery) {
-      return this.messages; // Return all messages if the query is empty
+      return this.schools; // Return all schools if the query is empty
     }
 
-    return this.messages.filter(message => {
+    return this.schools.filter(school => {
       // Customize the properties you want to include in the search
-      const searchableContent = `${message.fromName.toLowerCase()} ${message.subject.toLowerCase()} ${message.date.toLowerCase()}`;
+      const searchableContent = `${school.fromName.toLowerCase()} ${school.subject.toLowerCase()} ${school.date.toLowerCase()}`;
       
       return searchableContent.includes(sanitizedQuery);
     });

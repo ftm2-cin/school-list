@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { FavoritosPageRoutingModule } from './favoritos-routing.module';
 import { FavoritosPage } from './favoritos.page';
-import { MessageComponentModule } from '../message/message.module';
+import { SchoolComponentModule } from '../school/school.module';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { MessageComponentModule } from '../message/message.module';
     FormsModule,
     IonicModule,
     FavoritosPageRoutingModule,
-    MessageComponentModule,
+    SchoolComponentModule,
   ],
   declarations: [FavoritosPage],
 })

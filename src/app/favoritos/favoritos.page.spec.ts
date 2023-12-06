@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
-import { MessageComponentModule } from '../message/message.module';
+import { SchoolComponentModule } from '../school/school.module';
 
 import { FavoritosPage } from './favoritos.page';
 
@@ -13,7 +13,7 @@ describe('FavoritosPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FavoritosPage],
-      imports: [IonicModule.forRoot(), MessageComponentModule, RouterModule.forRoot([])]
+      imports: [IonicModule.forRoot(), SchoolComponentModule, RouterModule.forRoot([])]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FavoritosPage);

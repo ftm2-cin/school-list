@@ -1,15 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { DataService, Message } from '../services/data.service';
+import { DataService, School } from '../services/data.service';
 
 @Component({
-  selector: 'app-view-message',
-  templateUrl: './view-message.page.html',
-  styleUrls: ['./view-message.page.scss'],
+  selector: 'app-view-school',
+  templateUrl: './view-school.page.html',
+  styleUrls: ['./view-school.page.scss'],
 })
-export class ViewMessagePage implements OnInit {
-  public message!: Message;
+export class ViewSchoolPage implements OnInit {
+  public school!: School;
   private data = inject(DataService);
   private activatedRoute = inject(ActivatedRoute);
 
@@ -17,7 +17,7 @@ export class ViewMessagePage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.message = this.data.getMessageById(parseInt(id, 10));
+    this.school = this.data.getSchoolById(parseInt(id, 10));
   }
 
   goBack() {

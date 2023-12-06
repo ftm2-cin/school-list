@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { DataService, Message } from '../services/data.service';
+import { DataService, School } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +10,16 @@ import { DataService, Message } from '../services/data.service';
 })
 export class HomePage {
   searchQuery: string = '';
-  messages: Message[] = [];
-  filteredMessages: Message[] = [];
+  schools: School[] = [];
+  filteredSchools: School[] = [];
 
   constructor(
     private menu: MenuController,
     private router: Router,
     private data: DataService
   ) {
-    this.messages = this.data.getMessages();
-    this.filteredMessages = this.messages; // Initialize with all messages
+    this.schools = this.data.getSchools();
+    this.filteredSchools = this.schools; // Initialize with all schools
   }
 
   refresh(ev: any) {
@@ -28,8 +28,8 @@ export class HomePage {
     }, 3000);
   }
 
-  getMessages(): Message[] {
-    return this.filteredMessages;
+  getSchools(): School[] {
+    return this.filteredSchools;
   }
 
   closeMenu() {
@@ -56,7 +56,7 @@ export class HomePage {
     const inputValue = (event.target as HTMLInputElement).value.toLowerCase().trim();
     this.searchQuery = inputValue;
 
-    this.filteredMessages = this.messages.filter(message => {
+    this.filteredSchools = this.schools.filter(message => {
       const searchableContent = `${message.fromName.toLowerCase()} ${message.subject.toLowerCase()} ${message.date.toLowerCase()}`;
       return searchableContent.includes(inputValue);
     });

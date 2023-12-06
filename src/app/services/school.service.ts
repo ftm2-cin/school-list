@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Message } from './data.service';
+import { School } from './data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,30 +20,30 @@ export class SchoolService {
     localStorage.setItem(this.storageKey, JSON.stringify(this.favoriteSchools));
   }
 
-  addFavorite(message: any) {
-    this.favoriteSchools.push(message);
+  addFavorite(school: any) {
+    this.favoriteSchools.push(school);
     this.updateLocalStorage(); // Update LocalStorage after adding a favorite
   }
 
-  removeFavorite(messageId: number) {
-    this.favoriteSchools = this.favoriteSchools.filter(msg => msg.id !== messageId);
+  removeFavorite(schoolId: number) {
+    this.favoriteSchools = this.favoriteSchools.filter(msg => msg.id !== schoolId);
     this.updateLocalStorage(); // Update LocalStorage after removing a favorite
   }
 
-  getFavoriteMessages() {
+  getFavoriteSchools() {
     return this.favoriteSchools;
   }
 
-  searchFavoriteMessages(query: string): Message[] {
+  searchFavoriteSchools(query: string): School[] {
     const sanitizedQuery = query.toLowerCase().trim();
 
     if (!sanitizedQuery) {
-      return this.favoriteSchools; // Return all favorite messages if the query is empty
+      return this.favoriteSchools; // Return all favorite Schools if the query is empty
     }
 
-    return this.favoriteSchools.filter(message => {
+    return this.favoriteSchools.filter(school => {
       // Customize the properties you want to include in the search
-      const searchableContent = `${message.fromName.toLowerCase()} ${message.subject.toLowerCase()} ${message.date.toLowerCase()}`;
+      const searchableContent = `${school.fromName.toLowerCase()} ${school.subject.toLowerCase()} ${school.date.toLowerCase()}`;
       
       return searchableContent.includes(sanitizedQuery);
     });

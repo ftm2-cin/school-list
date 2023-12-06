@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RefresherEventDetail } from '@ionic/core';
-import { Message } from '../services/data.service';
+import { School } from '../services/data.service';
 import { SchoolService } from '../services/school.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { SchoolService } from '../services/school.service';
   styleUrls: ['favoritos.page.scss'],
 })
 export class FavoritosPage {
-  favoriteMessages: Message[] = [];
+  favoriteSchools: School[] = [];
 
   constructor(
     private router: Router,
@@ -18,7 +18,7 @@ export class FavoritosPage {
   ) {}
 
   ionViewWillEnter() {
-    this.favoriteMessages = this.getMessages();
+    this.favoriteSchools = this.getSchools();
   }
 
   refresh(ev: any) {
@@ -27,8 +27,8 @@ export class FavoritosPage {
     }, 3000);
   }
 
-  getMessages(): Message[] {
-    return this.schoolService.getFavoriteMessages();
+  getSchools(): School[] {
+    return this.schoolService.getFavoriteSchools();
   }
 
   toggleFavorite(message: any) {

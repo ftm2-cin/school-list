@@ -27,7 +27,7 @@
       </ion-refresher>
   
       <!-- Check if getMessages array is empty -->
-      <ng-container *ngIf="getMessages().length === 0">
+      <ng-container *ngIf="getSchools().length === 0">
         <ion-icon name="close-circle-outline" size="large"></ion-icon>
         <p>Nenhuma escola favoritada ainda!</p>
       </ng-container>
@@ -41,8 +41,8 @@
       </ion-header>
   
       <!-- Display messages if getMessages array is not empty -->
-      <ion-list *ngIf="getMessages().length > 0">
-        <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
+      <ion-list *ngIf="getSchools().length > 0">
+        <app-message *ngFor="let message of getSchools()" [school]="message"></app-message>
       </ion-list>
     </ion-content>
   </div>
