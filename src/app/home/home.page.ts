@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 import { RefresherCustomEvent } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { DataService, Message } from '../services/data.service';
@@ -9,8 +10,11 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  private data = inject(DataService);
-  constructor() {}
+  constructor(
+    private menu: MenuController,
+    private router: Router,
+    private data: DataService
+  ) {}
 
   refresh(ev: any) {
     setTimeout(() => {
@@ -22,20 +26,23 @@ export class HomePage {
     return this.data.getMessages();
   }
 
-  router = inject(Router);
+  closeMenu() {
+    this.menu.close();
+  }
 
   goToPage(page: string) {
     switch (page) {
       case 'home':
         // Navigate to the Home page
         this.router.navigate(['/home']);
+        this.menu.close();
         break;
       case 'favorites':
         // Navigate to the Favorites page
         this.router.navigate(['/favoritos']);
+        this.menu.close();
         break;
       // Add more cases for additional pages if needed
     }
   }
-  
 }
