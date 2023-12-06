@@ -41,9 +41,8 @@ export class FavoritosPage {
   }
   
   async goBack() {
-    await this.router.navigate(['/home']); // Replace 'home' with the path to your home page component
+    await this.router.navigate(['/home']); 
 
-    // Delay necessary to avoid "Cannot match any routes" error
     setTimeout(() => {
       window.location.href = window.location.href;
     }, 50);
