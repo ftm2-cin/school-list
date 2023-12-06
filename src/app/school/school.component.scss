@@ -14,8 +14,15 @@ ion-item h2 {
   flex-wrap: wrap;
   justify-content: space-between;
   color: var(--ion-color-primary);
+  font-size: large;
+  margin-bottom: 5px;
 }
 
+ion-item h3 {
+  display: flex;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
 ion-item p {
   text-overflow: ellipsis;
   overflow: hidden;

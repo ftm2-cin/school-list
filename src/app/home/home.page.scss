@@ -1,4 +1,12 @@
 /* Add this CSS to your styles.css or equivalent stylesheet */
+.card {
+  padding: 10px;
+  border-radius: 15px;
+  border: 0.5px solid black; /* Adding a solid order */
+  /* Adding a gradient shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+              0 1px 3px rgba(0, 0, 0, 0.08);
+}
 
 .selection-menu{
     display: flex;

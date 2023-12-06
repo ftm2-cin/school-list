@@ -42,7 +42,7 @@
   
       <!-- Display messages if getMessages array is not empty -->
       <ng-container *ngIf="getSchools().length > 0">
-        <ion-card *ngFor="let message of getSchools()">
+        <ion-card *ngFor="let message of getSchools()" class="card">
           <app-message [school]="message"></app-message>
         </ion-card>
       </ng-container>      

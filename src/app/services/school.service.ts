@@ -42,7 +42,6 @@ export class SchoolService {
     }
 
     return this.favoriteSchools.filter(school => {
-      // Customize the properties you want to include in the search
       const searchableContent = `${school.noEntidade.toLowerCase()} ${school.coEntidade}`;
       
       return searchableContent.includes(sanitizedQuery);

@@ -46,7 +46,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-searchbar [debounce]="1000" (ionInput)="onSearchInputChange($event)"></ion-searchbar>
-      <ion-card *ngFor="let message of getSchools()">
+      <ion-card *ngFor="let message of getSchools()" class="card">
         <app-message [school]="message"></app-message>
       </ion-card>      
     </ion-content>
