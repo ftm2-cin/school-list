@@ -41,9 +41,11 @@
       </ion-header>
   
       <!-- Display messages if getMessages array is not empty -->
-      <ion-list *ngIf="getSchools().length > 0">
-        <app-message *ngFor="let message of getSchools()" [school]="message"></app-message>
-      </ion-list>
+      <ng-container *ngIf="getSchools().length > 0">
+        <ion-card *ngFor="let message of getSchools()">
+          <app-message [school]="message"></app-message>
+        </ion-card>
+      </ng-container>      
     </ion-content>
   </div>
 </ion-app>
