@@ -19,7 +19,15 @@ export class ViewSchoolPage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.school = this.dataService.getSchoolBycoEntidade(parseInt(id, 10)) || {} as School;
+    this.dataService.getSchoolBycoEntidade(parseInt(id, 10)).subscribe(
+      (school) => {
+        this.school = school || {} as School;
+      },
+      (error) => {
+        console.error('Error fetching school:', error);
+        // Handle the error as needed
+      }
+    );
   }
 
   goBack() {

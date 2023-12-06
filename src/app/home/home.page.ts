@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { DataService, School } from '../services/data.service';
@@ -8,7 +8,7 @@ import { DataService, School } from '../services/data.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   searchQuery: string = '';
   schools: School[] = [];
   filteredSchools: School[] = [];
@@ -17,9 +17,13 @@ export class HomePage {
     private menu: MenuController,
     private router: Router,
     private data: DataService
-  ) {
-    this.schools = this.data.getSchools();
-    this.filteredSchools = this.schools;
+  ) {}
+
+  ngOnInit() {
+    this.data.getSchools().subscribe((schools) => {
+      this.schools = schools;
+      this.filteredSchools = schools;
+    });
   }
 
   refresh(ev: any) {
@@ -56,8 +60,8 @@ export class HomePage {
     const inputValue = (event.target as HTMLInputElement).value.toLowerCase().trim();
     this.searchQuery = inputValue;
 
-    this.filteredSchools = this.schools.filter(message => {
-      const searchableContent = `${message.noEntidade.toLowerCase()} ${message.coEntidade}`;
+    this.filteredSchools = this.schools.filter((school) => {
+      const searchableContent = `${school.noEntidade.toLowerCase()} ${school.coEntidade}`;
       return searchableContent.includes(inputValue);
     });
   }
