@@ -1,6 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { RefresherCustomEvent, NavController } from '@ionic/angular'; // Import NavController
-import { DataService, Message } from '../services/data.service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { RefresherEventDetail } from '@ionic/core';
+import { Message } from '../services/data.service';
+import { SchoolService } from '../services/school.service';
 
 @Component({
   selector: 'app-home',
@@ -8,20 +10,28 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['favoritos.page.scss'],
 })
 export class FavoritosPage {
-  private data = inject(DataService);
-  constructor(private navCtrl: NavController) {} // Inject NavController here
+  favoriteMessages: Message[] = [];
+
+  constructor(
+    private router: Router,
+    private schoolService: SchoolService
+  ) {}
+
+  ionViewWillEnter() {
+    this.favoriteMessages = this.getMessages();
+  }
 
   refresh(ev: any) {
     setTimeout(() => {
-      (ev as RefresherCustomEvent).detail.complete();
+      (ev.detail as RefresherEventDetail).complete();
     }, 3000);
   }
 
   getMessages(): Message[] {
-    return this.data.getMessages();
+    return this.schoolService.getFavoriteMessages();
   }
 
   goBack() {
-    this.navCtrl.back();
+    this.router.navigate(['/home']); // Replace 'home' with the path to your home page component
   }
 }

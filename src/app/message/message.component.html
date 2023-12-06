@@ -4,8 +4,9 @@
     <h2>
       {{ message.fromName }}
       <span class="date">
-        <ion-note>{{ message.date }}</ion-note>
-        <ion-icon aria-hidden="true" name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
+        <ion-button fill="clear" (click)="toggleFavorite()">
+          <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'" color="danger"></ion-icon>
+        </ion-button>
       </span>
     </h2>
     <h3>{{ message.subject }}</h3>
