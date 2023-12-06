@@ -1,4 +1,4 @@
-# vlab-challenge
+# V-lab Challenge
 
 ## Overview
 
