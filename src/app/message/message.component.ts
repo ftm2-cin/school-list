@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SchoolService } from '../services/school.service';
 import { Message } from '../services/data.service';
 
@@ -7,12 +7,16 @@ import { Message } from '../services/data.service';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss'],
 })
-export class MessageComponent {
+export class MessageComponent implements OnInit {
   @Input() message?: Message;
   isFavorite: boolean = false;
 
-  constructor(private schoolService: SchoolService) {
-    this.isFavorite = this.schoolService.getFavoriteMessages().some(msg => msg.id === this.message?.id);
+  constructor(private schoolService: SchoolService) {}
+
+  ngOnInit() {
+    if (this.message) {
+      this.isFavorite = this.schoolService.getFavoriteMessages().some(msg => msg.id === this.message?.id);
+    }
   }
 
   toggleFavorite() {

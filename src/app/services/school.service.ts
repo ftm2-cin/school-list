@@ -4,22 +4,32 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SchoolService {
-  favoriteSchools: any[] = []; // Array para armazenar mensagens favoritas
+  private readonly storageKey = 'favoriteSchools'; // Key for storing data in LocalStorage
 
-  constructor() {}
+  favoriteSchools: any[] = [];
+
+  constructor() {
+    // Retrieve favorite schools from LocalStorage during initialization
+    const storedFavorites = localStorage.getItem(this.storageKey);
+    this.favoriteSchools = storedFavorites ? JSON.parse(storedFavorites) : [];
+  }
+
+  private updateLocalStorage() {
+    // Update LocalStorage with the current favorite schools data
+    localStorage.setItem(this.storageKey, JSON.stringify(this.favoriteSchools));
+  }
 
   addFavorite(message: any) {
-    // Adicione a mensagem aos favoritos
     this.favoriteSchools.push(message);
+    this.updateLocalStorage(); // Update LocalStorage after adding a favorite
   }
 
   removeFavorite(messageId: number) {
-    // Remova a mensagem dos favoritos pelo ID
     this.favoriteSchools = this.favoriteSchools.filter(msg => msg.id !== messageId);
+    this.updateLocalStorage(); // Update LocalStorage after removing a favorite
   }
 
   getFavoriteMessages() {
-    // Obtenha a lista de mensagens favoritas
     return this.favoriteSchools;
   }
 }

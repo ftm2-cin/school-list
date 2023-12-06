@@ -31,6 +31,14 @@ export class FavoritosPage {
     return this.schoolService.getFavoriteMessages();
   }
 
+  toggleFavorite(message: any) {
+    message.isFavorite = !message.isFavorite; // Toggle the favorite status
+    if (message.isFavorite) {
+      this.schoolService.addFavorite(message); // Add to favorites
+    } else {
+      this.schoolService.removeFavorite(message.id); // Remove from favorites
+    }
+  }
   goBack() {
     this.router.navigate(['/home']); // Replace 'home' with the path to your home page component
   }

@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: 'vlab-challenge',
   webDir: 'www',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'http'
   }
 };
 
