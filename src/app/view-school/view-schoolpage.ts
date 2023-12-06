@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { DataService, School } from '../services/data.service';
 
@@ -14,7 +14,8 @@ export class ViewSchoolPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private dataService: DataService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router // Inject the Router
   ) {}
 
   ngOnInit() {
@@ -35,12 +36,12 @@ export class ViewSchoolPage implements OnInit {
   }
 
   redirectToLocationInfo() {
-    // Implement navigation logic to redirect to the Location Information page
-    // Example: this.navCtrl.navigateForward('/location-info/' + school.id);
+    const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
+    this.router.navigate([`/school/${id}/location`]); // Navigate to the location page with the school ID
   }
 
   redirectToContactInfo() {
-    // Implement navigation logic to redirect to the Contact Information page
-    // Example: this.navCtrl.navigateForward('/contact-info/' + school.id);
+    const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
+    this.router.navigate([`/school/${id}/contact`]); // Navigate to the location page with the school ID
   }
 }
