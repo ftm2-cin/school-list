@@ -18,20 +18,25 @@
   </ion-item>
   
   <div class="ion-padding">
-    <h1>{{ school.noEntidade }}</h1>
     <div class="school-info">
-      <ul>
-        <li><strong>School Name:</strong> {{ school.noEntidade }}</li>
-        <li><strong>Year of Census:</strong> {{ school.nuAnoCenso }}</li>
-        <li><strong>Type of Dependence:</strong> {{ school.tpDependencia }}</li>
-        <li><strong>Network:</strong> {{ school.rede }}</li>
-        <li><strong>Location:</strong> {{ school.localizacao }}</li>
-        <li><strong>Region:</strong> {{ school.noRegiao }}</li>
-        <li><strong>Address:</strong> {{ school.dsEndereco }}, {{ school.nuEndereco }}</li>
-        <li><strong>Region:</strong> {{ school.noRegiao }}</li>
-        <li><strong>City:</strong> {{ school.noMunicipio }}, {{ school.sgUf }}</li>
-        <li><strong>Phone:</strong> {{ school.nuDdd }} {{ school.nuTelefone }}</li>
-      </ul>
+      <div class="school-info">
+        <ul>
+          <li><strong>Tipo de dependência:</strong> {{ school.tpDependencia }}</li>
+          <li><strong>Ano de Censo:</strong> {{ school.nuAnoCenso }}</li>
+          <li><strong>Rede:</strong> {{ school.rede }}</li>
+        </ul>
+      </div>
+      <div class="cardscontainer">
+        <!-- Location Info Button -->
+        <ion-card expand="full" (click)="redirectToLocationInfo()" class="card">
+          <h3>Localização</h3>
+        </ion-card>
+  
+        <!-- Contact Info Button -->
+        <ion-card expand="full" (click)="redirectToContactInfo()" class="card">
+           <h3>Contato</h3>
+        </ion-card>
+      </div>
     </div>
   </div>
 </ion-content>

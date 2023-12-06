@@ -33,4 +33,14 @@ export class ViewSchoolPage implements OnInit {
   goBack() {
     this.navCtrl.pop();
   }
+
+  redirectToLocationInfo() {
+    // Implement navigation logic to redirect to the Location Information page
+    // Example: this.navCtrl.navigateForward('/location-info/' + school.id);
+  }
+
+  redirectToContactInfo() {
+    // Implement navigation logic to redirect to the Contact Information page
+    // Example: this.navCtrl.navigateForward('/contact-info/' + school.id);
+  }
 }
