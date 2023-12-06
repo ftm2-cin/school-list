@@ -1,12 +1,12 @@
 <ion-item *ngIf="school">
   <!-- Left section for school information -->
-  <ion-label class="left-section ion-text-wrap" [routerLink]="'/school/' + school.id" >
+  <ion-label class="left-section ion-text-wrap" [routerLink]="'/school/' + school.coEntidade" >
     <h2>
-      {{ school.fromName }}
+      {{ school.noEntidade }}
     </h2>
-    <h3>{{ school.subject }}</h3>
+    <h3>{{ school.noMunicipio }}</h3>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni assumenda dicta sunt adipisci aut dignissimos nulla sapiente, iusto rem voluptatem asperiores labore, ea quam blanditiis facere fugiat eligendi mollitia quae.
+      Cód.Inep: {{ school.coEntidade }}
     </p>
   </ion-label>
   <ion-button class="right-section" fill="clear" (click)="toggleFavorite()">

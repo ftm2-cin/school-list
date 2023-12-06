@@ -7,7 +7,7 @@ import { School } from './data.service';
 export class SchoolService {
   private readonly storageKey = 'favoriteSchools'; // Key for storing data in LocalStorage
 
-  favoriteSchools: any[] = [];
+  favoriteSchools: School[] = [];
 
   constructor() {
     // Retrieve favorite schools from LocalStorage during initialization
@@ -20,17 +20,17 @@ export class SchoolService {
     localStorage.setItem(this.storageKey, JSON.stringify(this.favoriteSchools));
   }
 
-  addFavorite(school: any) {
+  addFavorite(school: School) {
     this.favoriteSchools.push(school);
     this.updateLocalStorage(); // Update LocalStorage after adding a favorite
   }
 
   removeFavorite(schoolId: number) {
-    this.favoriteSchools = this.favoriteSchools.filter(msg => msg.id !== schoolId);
+    this.favoriteSchools = this.favoriteSchools.filter(school => school.coEntidade !== schoolId);
     this.updateLocalStorage(); // Update LocalStorage after removing a favorite
   }
 
-  getFavoriteSchools() {
+  getFavoriteSchools(): School[] {
     return this.favoriteSchools;
   }
 
@@ -43,7 +43,7 @@ export class SchoolService {
 
     return this.favoriteSchools.filter(school => {
       // Customize the properties you want to include in the search
-      const searchableContent = `${school.fromName.toLowerCase()} ${school.subject.toLowerCase()} ${school.date.toLowerCase()}`;
+      const searchableContent = `${school.noEntidade.toLowerCase()} ${school.coEntidade}`;
       
       return searchableContent.includes(sanitizedQuery);
     });

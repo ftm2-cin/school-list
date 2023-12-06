@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { RefresherEventDetail } from '@ionic/core';
 import { School } from '../services/data.service';
 import { SchoolService } from '../services/school.service';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-home',

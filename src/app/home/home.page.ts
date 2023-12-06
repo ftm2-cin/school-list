@@ -19,7 +19,7 @@ export class HomePage {
     private data: DataService
   ) {
     this.schools = this.data.getSchools();
-    this.filteredSchools = this.schools; // Initialize with all schools
+    this.filteredSchools = this.schools;
   }
 
   refresh(ev: any) {
@@ -57,7 +57,7 @@ export class HomePage {
     this.searchQuery = inputValue;
 
     this.filteredSchools = this.schools.filter(message => {
-      const searchableContent = `${message.fromName.toLowerCase()} ${message.subject.toLowerCase()} ${message.date.toLowerCase()}`;
+      const searchableContent = `${message.noEntidade.toLowerCase()} ${message.coEntidade}`;
       return searchableContent.includes(inputValue);
     });
   }

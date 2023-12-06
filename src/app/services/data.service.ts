@@ -1,11 +1,28 @@
 import { Injectable } from '@angular/core';
-
+  
 export interface School {
-  fromName: string;
-  subject: string;
-  date: string;
-  id: number;
-  read: boolean;
+  nuAnoCenso: number;
+  coEntidade: number;
+  noEntidade: string;
+  tpDependencia: number;
+  rede: string;
+  localizacao: string;
+  noRegiao: string;
+  coUf: number;
+  sgUf: string;
+  coMunicipio: number;
+  noMunicipio: string;
+  coCep: number;
+  dsEndereco: string;
+  nuEndereco: number;
+  dsComplemento: string;
+  noBairro: string;
+  nuDdd: number;
+  nuTelefone: number;
+  nuTelefonePublico: number;
+  nuFax: number;
+  latitude: number;
+  longitude: number;
 }
 
 @Injectable({
@@ -14,60 +31,148 @@ export interface School {
 export class DataService {
   public schools: School[] = [
     {
-      fromName: 'DAMAS',
-      subject: 'New event: Trip to Vegas',
-      date: '9:32 AM',
-      id: 0,
-      read: false
+      nuAnoCenso: 2021,
+      coEntidade: 1104601,
+      noEntidade: "COLEGIO AGAPE",
+      tpDependencia: 4,
+      rede: "Privada",
+      localizacao: "Urbana",
+      noRegiao: "Norte",
+      coUf: 11,
+      sgUf: "RO",
+      coMunicipio: 1100023,
+      noMunicipio: "Ariquemes",
+      coCep: 76872847,
+      dsEndereco: "AVENIDA JUSCELINO KUBITSCHEK",
+      nuEndereco: 3349,
+      dsComplemento: "",
+      noBairro: "SETOR INSTITUCIONAL",
+      nuDdd: 69,
+      nuTelefone: 35363561,
+      nuTelefonePublico: 0,
+      nuFax: 0,
+      latitude: -9.9010206,
+      longitude: -63.0321854
     },
     {
-      fromName: 'CBV',
-      subject: 'Long time no chat',
-      date: '6:12 AM',
-      id: 1,
-      read: false
+      nuAnoCenso: 2021,
+      coEntidade: 11046023,
+      noEntidade: "GGE",
+      tpDependencia: 4,
+      rede: "Privada",
+      localizacao: "Urbana",
+      noRegiao: "Norte",
+      coUf: 11,
+      sgUf: "RO",
+      coMunicipio: 1100023,
+      noMunicipio: "Ariquemes",
+      coCep: 76872847,
+      dsEndereco: "AVENIDA JUSCELINO KUBITSCHEK",
+      nuEndereco: 3349,
+      dsComplemento: "",
+      noBairro: "SETOR INSTITUCIONAL",
+      nuDdd: 69,
+      nuTelefone: 35363561,
+      nuTelefonePublico: 0,
+      nuFax: 0,
+      latitude: -9.9010206,
+      longitude: -63.0321854
     },
     {
-      fromName: 'MARISTA',
-      subject: 'Report Results',
-      date: '4:55 AM',
-      id: 2,
-      read: false
+      nuAnoCenso: 2021,
+      coEntidade: 11046023,
+      noEntidade: "COLEGIO",
+      tpDependencia: 4,
+      rede: "Privada",
+      localizacao: "Urbana",
+      noRegiao: "Norte",
+      coUf: 11,
+      sgUf: "RO",
+      coMunicipio: 1100023,
+      noMunicipio: "Ariquemes",
+      coCep: 76872847,
+      dsEndereco: "AVENIDA JUSCELINO KUBITSCHEK",
+      nuEndereco: 3349,
+      dsComplemento: "",
+      noBairro: "SETOR INSTITUCIONAL",
+      nuDdd: 69,
+      nuTelefone: 35363561,
+      nuTelefonePublico: 0,
+      nuFax: 0,
+      latitude: -9.9010206,
+      longitude: -63.0321854
     },
     {
-      fromName: 'NUCLEO',
-      subject: 'The situation',
-      date: 'Yesterday',
-      id: 3,
-      read: false
+      nuAnoCenso: 2021,
+      coEntidade: 11046023,
+      noEntidade: "DAMAS",
+      tpDependencia: 4,
+      rede: "Privada",
+      localizacao: "Urbana",
+      noRegiao: "Norte",
+      coUf: 11,
+      sgUf: "RO",
+      coMunicipio: 1100023,
+      noMunicipio: "CBV",
+      coCep: 76872847,
+      dsEndereco: "AVENIDA JUSCELINO KUBITSCHEK",
+      nuEndereco: 3349,
+      dsComplemento: "",
+      noBairro: "SETOR INSTITUCIONAL",
+      nuDdd: 69,
+      nuTelefone: 35363561,
+      nuTelefonePublico: 0,
+      nuFax: 0,
+      latitude: -9.9010206,
+      longitude: -63.0321854
     },
     {
-      fromName: 'POLI',
-      subject: 'Updated invitation: Swim lessons',
-      date: 'Yesterday',
-      id: 4,
-      read: false
+      nuAnoCenso: 2021,
+      coEntidade: 11046023,
+      noEntidade: "NUCLEO",
+      tpDependencia: 4,
+      rede: "Privada",
+      localizacao: "Urbana",
+      noRegiao: "Norte",
+      coUf: 11,
+      sgUf: "RO",
+      coMunicipio: 1100023,
+      noMunicipio: "Ariquemes",
+      coCep: 76872847,
+      dsEndereco: "AVENIDA JUSCELINO KUBITSCHEK",
+      nuEndereco: 3349,
+      dsComplemento: "",
+      noBairro: "SETOR INSTITUCIONAL",
+      nuDdd: 69,
+      nuTelefone: 35363561,
+      nuTelefonePublico: 0,
+      nuFax: 0,
+      latitude: -9.9010206,
+      longitude: -63.0321854
     },
     {
-      fromName: 'UFPE',
-      subject: 'Last minute ask',
-      date: 'Yesterday',
-      id: 5,
-      read: false
-    },
-    {
-      fromName: 'UFRPE',
-      subject: 'Family Calendar - Version 1',
-      date: 'Last Week',
-      id: 6,
-      read: false
-    },
-    {
-      fromName: 'SAO BENTO',
-      subject: 'Placeholder Headhots',
-      date: 'Last Week',
-      id: 7,
-      read: false
+      nuAnoCenso: 2021,
+      coEntidade: 11046023,
+      noEntidade: "COG",
+      tpDependencia: 4,
+      rede: "Privada",
+      localizacao: "Urbana",
+      noRegiao: "Norte",
+      coUf: 11,
+      sgUf: "RO",
+      coMunicipio: 1100023,
+      noMunicipio: "Ariquemes",
+      coCep: 76872847,
+      dsEndereco: "AVENIDA JUSCELINO KUBITSCHEK",
+      nuEndereco: 3349,
+      dsComplemento: "",
+      noBairro: "SETOR INSTITUCIONAL",
+      nuDdd: 69,
+      nuTelefone: 35363561,
+      nuTelefonePublico: 0,
+      nuFax: 0,
+      latitude: -9.9010206,
+      longitude: -63.0321854
     }
   ];
 
@@ -77,9 +182,10 @@ export class DataService {
     return this.schools;
   }
 
-  public getSchoolById(id: number): School {
-    return this.schools[id];
+  public getSchoolBycoEntidade(id: number): School | undefined {
+    return this.schools.find(school => school.coEntidade === id) || undefined;
   }
+  
 
   public searchSchool(query: string): School[] {
     const sanitizedQuery = query.toLowerCase().trim();
@@ -90,7 +196,7 @@ export class DataService {
 
     return this.schools.filter(school => {
       // Customize the properties you want to include in the search
-      const searchableContent = `${school.fromName.toLowerCase()} ${school.subject.toLowerCase()} ${school.date.toLowerCase()}`;
+      const searchableContent = `${school.noEntidade.toLowerCase()} ${school.coEntidade}`;
       
       return searchableContent.includes(sanitizedQuery);
     });

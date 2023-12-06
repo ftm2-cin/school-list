@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { DataService, School } from '../services/data.service';
@@ -10,14 +10,16 @@ import { DataService, School } from '../services/data.service';
 })
 export class ViewSchoolPage implements OnInit {
   public school!: School;
-  private data = inject(DataService);
-  private activatedRoute = inject(ActivatedRoute);
 
-  constructor(private navCtrl: NavController) {}
+  constructor(
+    private navCtrl: NavController,
+    private dataService: DataService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.school = this.data.getSchoolById(parseInt(id, 10));
+    this.school = this.dataService.getSchoolBycoEntidade(parseInt(id, 10)) || {} as School;
   }
 
   goBack() {
