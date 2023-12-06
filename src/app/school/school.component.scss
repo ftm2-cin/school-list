@@ -9,11 +9,11 @@ ion-label {
 }
 
 ion-item h2 {
-  font-weight: 600;
-  margin: 0;
   display: flex;
+  font-weight: 600;
   flex-wrap: wrap;
   justify-content: space-between;
+  color: var(--ion-color-primary);
 }
 
 ion-item p {

@@ -8,19 +8,30 @@
 
 <ion-content [fullscreen]="true" *ngIf="school">
   <ion-item>
-    <ion-icon aria-hidden="true" name="person-circle" color="primary"></ion-icon>
+    <ion-icon aria-hidden="true" name="school-outline" color="primary"></ion-icon>
     <ion-label class="ion-text-wrap">
       <h2>
         {{ school.noEntidade }}
       </h2>
-      <h3>To: <ion-note>Me</ion-note></h3>
+      <ion-note>Cód.Inep: {{ school.coEntidade }}</ion-note>
     </ion-label>
   </ion-item>
   
   <div class="ion-padding">
-    <h1>Cód.Inep: {{ school.coEntidade }}</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    <h1>{{ school.noEntidade }}</h1>
+    <div class="school-info">
+      <ul>
+        <li><strong>School Name:</strong> {{ school.noEntidade }}</li>
+        <li><strong>Year of Census:</strong> {{ school.nuAnoCenso }}</li>
+        <li><strong>Type of Dependence:</strong> {{ school.tpDependencia }}</li>
+        <li><strong>Network:</strong> {{ school.rede }}</li>
+        <li><strong>Location:</strong> {{ school.localizacao }}</li>
+        <li><strong>Region:</strong> {{ school.noRegiao }}</li>
+        <li><strong>Address:</strong> {{ school.dsEndereco }}, {{ school.nuEndereco }}</li>
+        <li><strong>Region:</strong> {{ school.noRegiao }}</li>
+        <li><strong>City:</strong> {{ school.noMunicipio }}, {{ school.sgUf }}</li>
+        <li><strong>Phone:</strong> {{ school.nuDdd }} {{ school.nuTelefone }}</li>
+      </ul>
+    </div>
   </div>
 </ion-content>
