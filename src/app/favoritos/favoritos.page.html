@@ -1,51 +1,32 @@
-<!-- app.component.html -->
 <ion-app>
   <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="goBack()">
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Escolas Favoritas</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Escolas Favoritas</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-  <div class="ion-page" id="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>Escolas Favoritas</ion-title>
-      </ion-toolbar>
-    </ion-header>
+  <ion-content [fullscreen]="true">
 
-    <ion-content [fullscreen]="true">
-      <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-        <ion-refresher-content></ion-refresher-content>
-      </ion-refresher>
-  
-      <!-- Check if getMessages array is empty -->
-      <ng-container *ngIf="getSchools().length === 0">
-        <ion-icon name="close-circle-outline" size="large"></ion-icon>
-        <p>Nenhuma escola favoritada ainda!</p>
-      </ng-container>
-  
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">
-            Inbox
-          </ion-title>
-        </ion-toolbar>
-      </ion-header>
-  
-      <!-- Display messages if getMessages array is not empty -->
-      <ng-container *ngIf="getSchools().length > 0">
-        <ion-card *ngFor="let message of getSchools()" class="card">
-          <app-message [school]="message"></app-message>
-        </ion-card>
-      </ng-container>      
-    </ion-content>
-  </div>
+    <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <!-- Check if getSchools array is empty -->
+    <div *ngIf="getSchools().length === 0" class="ion-text-center">
+      <ion-icon name="close-circle-outline" size="large" class="icon"></ion-icon>
+      <h2>Nenhuma escola favoritada ainda!</h2>
+    </div>
+
+    <!-- Display messages if getSchools array is not empty -->
+    <ng-container *ngIf="getSchools().length > 0">
+      <ion-card *ngFor="let school of getSchools()" class="card">
+        <app-message [school]="school"></app-message>
+      </ion-card>
+    </ng-container>      
+  </ion-content>
 </ion-app>
