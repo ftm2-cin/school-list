@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { RefresherCustomEvent } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { DataService, Message } from '../services/data.service';
 
@@ -10,20 +9,27 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  searchQuery: string = '';
+  messages: Message[] = [];
+  filteredMessages: Message[] = [];
+
   constructor(
     private menu: MenuController,
     private router: Router,
     private data: DataService
-  ) {}
+  ) {
+    this.messages = this.data.getMessages();
+    this.filteredMessages = this.messages; // Initialize with all messages
+  }
 
   refresh(ev: any) {
     setTimeout(() => {
-      (ev as RefresherCustomEvent).detail.complete();
+      ev.detail.complete();
     }, 3000);
   }
 
   getMessages(): Message[] {
-    return this.data.getMessages();
+    return this.filteredMessages;
   }
 
   closeMenu() {
@@ -44,5 +50,15 @@ export class HomePage {
         break;
       // Add more cases for additional pages if needed
     }
+  }
+
+  onSearchInputChange(event: Event) {
+    const inputValue = (event.target as HTMLInputElement).value.toLowerCase().trim();
+    this.searchQuery = inputValue;
+
+    this.filteredMessages = this.messages.filter(message => {
+      const searchableContent = `${message.fromName.toLowerCase()} ${message.subject.toLowerCase()} ${message.date.toLowerCase()}`;
+      return searchableContent.includes(inputValue);
+    });
   }
 }

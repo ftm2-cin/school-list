@@ -39,6 +39,7 @@ export class FavoritosPage {
       this.schoolService.removeFavorite(message.id); // Remove from favorites
     }
   }
+  
   goBack() {
     this.router.navigate(['/home']); // Replace 'home' with the path to your home page component
   }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Message } from './data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,20 @@ export class SchoolService {
 
   getFavoriteMessages() {
     return this.favoriteSchools;
+  }
+
+  searchFavoriteMessages(query: string): Message[] {
+    const sanitizedQuery = query.toLowerCase().trim();
+
+    if (!sanitizedQuery) {
+      return this.favoriteSchools; // Return all favorite messages if the query is empty
+    }
+
+    return this.favoriteSchools.filter(message => {
+      // Customize the properties you want to include in the search
+      const searchableContent = `${message.fromName.toLowerCase()} ${message.subject.toLowerCase()} ${message.date.toLowerCase()}`;
+      
+      return searchableContent.includes(sanitizedQuery);
+    });
   }
 }

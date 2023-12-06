@@ -80,4 +80,19 @@ export class DataService {
   public getMessageById(id: number): Message {
     return this.messages[id];
   }
+
+  public searchMessages(query: string): Message[] {
+    const sanitizedQuery = query.toLowerCase().trim();
+
+    if (!sanitizedQuery) {
+      return this.messages; // Return all messages if the query is empty
+    }
+
+    return this.messages.filter(message => {
+      // Customize the properties you want to include in the search
+      const searchableContent = `${message.fromName.toLowerCase()} ${message.subject.toLowerCase()} ${message.date.toLowerCase()}`;
+      
+      return searchableContent.includes(sanitizedQuery);
+    });
+  }
 }

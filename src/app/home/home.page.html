@@ -45,7 +45,7 @@
           </ion-title>
         </ion-toolbar>
       </ion-header>
-
+      <ion-searchbar [debounce]="1000" (ionInput)="onSearchInputChange($event)"></ion-searchbar>
       <ion-list>
         <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
       </ion-list>
