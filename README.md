@@ -37,19 +37,12 @@ Before you begin the challenge, make sure you have the following installed:
 
 ## Features
 
-1. Enhance UI/UX:
-   - Design Refinement: Focus on improving the color scheme, typography, and overall layout for a visually appealing interface.
-   - Responsive Design: Ensure the application's responsiveness across different devices, utilizing Ionic's grid system and media queries effectively.
-2. API Integration:
-   - Expand API Functionality: Integrate additional endpoints or services to retrieve more comprehensive data or offer additional functionalities.
-   - Error Handling: Implement clear and user-friendly error messages for scenarios such as network failures or server errors, improving the overall reliability of API calls.
-3. Google Maps Integration:
-   - Geolocation Services: Utilize Google Maps API to provide location-based services or display user-specific maps.
-   - Interactive Mapping: Implement custom markers and information windows on the map for enhanced user interaction and data representation.
+1. Responsive UI
+2. API Integration
+3. Google Maps Integration
 4. Testing
 5. Performance Optimization:
    - Optimize API Calls: Minimize network latency and enhance performance by employing caching strategies or batching API requests.
 6. Accessibility and Localization:
-   Accessibility Standards: Ensure compliance with accessibility standards, utilizing ARIA attributes and enabling keyboard navigation.
-   Localization Support: Implement multi-language support using ngx-translate or Angular's i18n for catering to a diverse user base.
-7. Documentation
+7. Local Storage
+8. Documentation
