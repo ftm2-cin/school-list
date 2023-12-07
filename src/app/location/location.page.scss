@@ -8,12 +8,20 @@
   }
 
   .map-container {
-    height: 400px;
-    width: 900px;
+    max-width: 90%; 
+    height: 60vh; 
     margin: 0 auto;
     border-radius: 20px;
-    overflow: hidden; 
+    overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+  
+  @media screen and (max-width: 600px) {
+    .map-container {
+      height: 300px; 
+      width: 100%;
+    }
+  }
+  
 
   
