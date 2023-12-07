@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 import { LocationPageRoutingModule } from './location-routing.module';
@@ -15,6 +15,7 @@ import { LocationPage } from './location.page';
     IonicModule,
     LocationPageRoutingModule
   ],
-  declarations: [LocationPage]
+  declarations: [LocationPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LocationPageModule {}
