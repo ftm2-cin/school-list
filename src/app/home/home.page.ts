@@ -52,7 +52,6 @@ export class HomePage implements OnInit {
         this.router.navigate(['/favoritos']);
         this.menu.close();
         break;
-      // Add more cases for additional pages if needed
     }
   }
 
