@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController, IonInfiniteScroll } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { DataService, School } from '../services/data.service';
+import { Observable, combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -63,21 +64,32 @@ export class HomePage implements OnInit {
   onSearchInputChange(event: Event) {
     const inputValue = (event.target as HTMLInputElement).value.toLowerCase().trim();
     this.searchQuery = inputValue;
-
-    this.filteredSchools = this.schools.filter((school) => {
-      const searchableContent = `${school.noEntidade.toLowerCase()} ${school.coEntidade}`;
-      return searchableContent.includes(inputValue);
-    });
+  
+    if (this.searchQuery) {
+      // Use both methods to search for schools
+      const byCoEntidade$ = this.data.getSchoolBycoEntidade(parseInt(this.searchQuery, 10));
+      const byNoEntidade$ = this.data.getSchoolBynoEntidade(this.searchQuery);
+  
+      // Combine the results of both searches
+      combineLatest([byCoEntidade$, byNoEntidade$]).subscribe(([byCoEntidade, byNoEntidade]) => {
+        // Merge the results into a single array
+        const searchResults = [byCoEntidade, byNoEntidade].filter((result) => result !== undefined) as School[];
+  
+        // Update the filteredSchools array based on the search results
+        this.filteredSchools = searchResults;
+      });
+    } else {
+      // If the search query is empty, show all schools
+      this.filteredSchools = this.schools;
+    }
   }
+  
+  
 
   loadData(event: any) {
-    // Increment the current page
     this.currentPage++;
-    console
-    // Load the next page of schools
     this.loadSchools(this.currentPage);
 
-    // Complete the infinite scroll event
     (event.target as IonInfiniteScroll).complete();
   }
 
@@ -85,7 +97,7 @@ export class HomePage implements OnInit {
     this.data.getSchoolDetailsBycoEntidade(coEntidade).subscribe(
       (schoolDetails) => {
         if (schoolDetails) {
-          // Implement logic to navigate to the school details page or display the details
+         
           console.log('School details:', schoolDetails);
         } else {
           console.error('School details not found.');

@@ -39,6 +39,11 @@ export class DataService {
     const url = `${this.apiUrl}?page=${page}`; // Update with your API endpoint
     return this.http.get<School[]>(url);
   }
+  
+  public getSchoolDetailsBycoEntidade(id: number): Observable<School | undefined> {
+    const url = `${this.apiUrl}/${id}`; // Assuming your API supports fetching details by ID
+    return this.http.get<School>(url);
+  }
 
   public getSchoolBycoEntidade(id: number): Observable<School | undefined> {
     const apiUrl = `http://157.230.55.217/api/escolas?coEntidade=${id}`;
@@ -48,8 +53,12 @@ export class DataService {
     );
   }
 
-  public getSchoolDetailsBycoEntidade(id: number): Observable<School | undefined> {
-    const url = `${this.apiUrl}/${id}`; // Assuming your API supports fetching details by ID
-    return this.http.get<School>(url);
+
+  public getSchoolBynoEntidade(name: string): Observable<School | undefined> {
+    const apiUrl = `http://157.230.55.217/api/escolas?noEntidade=${name}`;
+
+    return this.http.get<School[]>(apiUrl).pipe(
+      map((schools) => (schools.length > 0 ? schools[0] : undefined))
+    );
   }
 }
