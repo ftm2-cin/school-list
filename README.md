@@ -2,7 +2,7 @@
 
 ## Overview
 
-This challenge is designed to test my skills in developing a mobile application using the Ionic framework with Angular.
+This challenge is designed to test my skills in developing a mobile application using the Ionic framework with Angular for VLAB UFPE.
 
 ## Prerequisites
 
