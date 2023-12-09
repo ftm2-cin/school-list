@@ -6,23 +6,20 @@
         <ion-title>Opções</ion-title>
       </ion-toolbar>
     </ion-header>
-      <ion-content>
-        <ion-list class="selection-menu">
-          <ion-item (click)="goToPage('home')" button>
-            <ion-icon name="home"></ion-icon> Home
-          </ion-item>
-          <ion-item (click)="goToPage('favorites')" button>
-            <ion-icon name="heart"></ion-icon> Favoritos
-          </ion-item>
-          <ion-item (click)="closeMenu()" button>
-            <ion-icon name="close"></ion-icon> Sair
-          </ion-item>
-        </ion-list>
-      </ion-content>
+    <ion-content>
+      <ion-list class="selection-menu">
+        <ion-item (click)="goToPage('home')" button>
+          <ion-icon name="home"></ion-icon> Home
+        </ion-item>
+        <ion-item (click)="goToPage('favorites')" button>
+          <ion-icon name="heart"></ion-icon> Favoritos
+        </ion-item>
+        <ion-item (click)="closeMenu()" button>
+          <ion-icon name="close"></ion-icon> Sair
+        </ion-item>
+      </ion-list>
+    </ion-content>
   </ion-menu>
-  
-  
-
   <div class="ion-page" id="main-content">
     <ion-header>
       <ion-toolbar>
@@ -45,10 +42,20 @@
           </ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-searchbar [debounce]="1000" (ionInput)="onSearchInputChange($event)" class="custom"></ion-searchbar>
-      <ion-card *ngFor="let message of getSchools()" class="card">
-        <app-message [school]="message"></app-message>
-      </ion-card>      
+      <ion-searchbar [debounce]="1000" (ionInput)="onSearchInputChange($event)" class="custom" placeholder="Escola ou Código INEP"></ion-searchbar>
+
+
+      <ion-list>
+        <ion-card *ngFor="let school of getSchools()" class="card" (click)="goToSchoolDetails(school.coEntidade)">
+          <app-message [school]="school" (schoolClick)="goToSchoolDetails($event)"></app-message>
+        </ion-card>
+      </ion-list>
+
+
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" class="scrool">
+        <ion-infinite-scroll-content>
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
     </ion-content>
   </div>
 </ion-app>
