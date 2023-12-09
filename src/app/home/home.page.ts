@@ -21,11 +21,11 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loadSchools();
+    this.loadSchools(this.currentPage);
   }
 
-  loadSchools() {
-    this.data.getSchools().subscribe((schools) => {
+  loadSchools(page: number) {
+    this.data.getSchools(page).subscribe((schools) => {
       this.schools = [...this.schools, ...schools];
       this.filteredSchools = this.schools;
     });
@@ -73,9 +73,9 @@ export class HomePage implements OnInit {
   loadData(event: any) {
     // Increment the current page
     this.currentPage++;
-
+    console
     // Load the next page of schools
-    this.loadSchools();
+    this.loadSchools(this.currentPage);
 
     // Complete the infinite scroll event
     (event.target as IonInfiniteScroll).complete();

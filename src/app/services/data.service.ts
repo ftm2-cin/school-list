@@ -35,13 +35,16 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  public getSchools(): Observable<School[]> {
-    return this.http.get<School[]>(this.apiUrl);
+  getSchools(page: number): Observable<School[]> {
+    const url = `${this.apiUrl}?page=${page}`; // Update with your API endpoint
+    return this.http.get<School[]>(url);
   }
 
   public getSchoolBycoEntidade(id: number): Observable<School | undefined> {
-    return this.getSchools().pipe(
-      map((schools) => schools.find((school) => school.coEntidade === id))
+    const apiUrl = `http://157.230.55.217/api/escolas?coEntidade=${id}`;
+
+    return this.http.get<School[]>(apiUrl).pipe(
+      map((schools) => (schools.length > 0 ? schools[0] : undefined))
     );
   }
 
