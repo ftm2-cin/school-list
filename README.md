@@ -13,7 +13,6 @@ Before you begin the challenge, make sure you have the following installed:
 - Ionic CLI
 
 ## Getting Started
-
 1. Clone this repository to your local machine:
 
    ```bash
@@ -36,10 +35,9 @@ Before you begin the challenge, make sure you have the following installed:
    ```
 
 ## Features
-
 1. Responsive UI
 2. API Integration
-3. Google Maps Integration
+3. Google Maps Integration API
 4. Testing
 5. Performance Optimization:
    - Optimize API Calls: Minimize network latency and enhance performance by employing caching strategies or batching API requests.
