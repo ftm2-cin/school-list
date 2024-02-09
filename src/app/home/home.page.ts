@@ -13,7 +13,7 @@ export class HomePage implements OnInit {
   searchQuery: string = '';
   schools: School[] = [];
   filteredSchools: School[] = [];
-  currentPage: number = 1;
+  currentPage: number = 0;
 
   constructor(
     private menu: MenuController,
