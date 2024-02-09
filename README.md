@@ -17,7 +17,7 @@ To test, make sure you have the following installed:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone 
+   git clone https://github.com/ftm2-cin/school-list.git
    ```
 
 2. Navigate to the project directory:
@@ -38,10 +38,13 @@ To test, make sure you have the following installed:
 ## Features
 1. Responsive UI
 2. API Integration
-3. Google Maps Integration API
-4. Testing
-5. Performance Optimization:
+3. Google Maps Integration API (API Key Free period ends in February - 2024)
+   
+   ![MAPS](resources/maps.png "MAPS")
+
+5. Testing
+6. Performance Optimization:
    - Optimize API Calls: Minimize network latency and enhance performance by employing caching strategies or batching API requests.
-6. Accessibility and Localization:
-7. Local Storage
-8. Documentation
+7. Accessibility and Localization:
+8. Local Storage
+9. Documentation
