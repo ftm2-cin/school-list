@@ -1,28 +1,29 @@
-# V-lab Challenge
+# School List App
 
 ## Overview
 
-This challenge is designed to test my skills in developing a mobile application using the Ionic framework with Angular for VLAB UFPE.
+This application was created as a learning project for Angular and the Ionic Framework. It utilizes a public API to display a list of Brazilian schools along with their information, contact details, and geographic locations.
 
 ## Prerequisites
 
-Before you begin the challenge, make sure you have the following installed:
+To test, make sure you have the following installed:
 
 - Node.js and npm
 - Angular CLI
 - Ionic CLI
+- Typescript
 
 ## Getting Started
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/ionic-angular-challenge.git
+   git clone 
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd vlab-challenge
+   cd school-list
    ```
 
 3. Install project dependencies:
